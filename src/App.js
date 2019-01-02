@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import axios from "axios";
 
-class App extends Component {
+async function getUser() {
+  let user = await axios.get("https://randomuser.me/api");
+  return user;
+}
+
+class App extends React.Component {
+  state = { user: {} };
+  componentDidMount() {
+    getUser().then(res => this.setState({ user: res.data.results[0] }));
+  }
+  onLoadUser = () => {
+    getUser().then(res => this.setState({ user: res.data.results[0] }));
+  };
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>Service worker prefetch demo</h1>
+        <button onClick={this.onLoadUser}>Load dummy user</button>
+        <h2>{JSON.stringify(this.state.user.name)}</h2><br /><br />
       </div>
     );
   }
