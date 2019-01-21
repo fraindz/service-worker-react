@@ -9,6 +9,11 @@ Developed by following instructions at https://medium.freecodecamp.org/how-to-bu
 
 ## Available Scripts
 
+Start a dummy server
+
+- `cd static-tools`
+- `npx json-server --watch todos.json --port 8000`
+
 In the project directory, you can run:
 
 ### `npm start`

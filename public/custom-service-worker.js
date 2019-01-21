@@ -8,7 +8,7 @@ if (workbox) {
 
 workbox.routing.registerRoute(
   'http://localhost:8000/todos',
-  workbox.strategies.networkFirst()
+  workbox.strategies.staleWhileRevalidate()
 )
 
 workbox.routing.registerRoute(
@@ -19,14 +19,15 @@ workbox.routing.registerRoute(
   'http://localhost:3000',
   workbox.strategies.networkFirst()
 )
-/*
+
 workbox.routing.registerRoute(
   new RegExp('https://randomuser.me/api'),
   workbox.strategies.staleWhileRevalidate()
 )
-*/
 
+/*
 workbox.routing.registerRoute(
   new RegExp('https://randomuser.me/api'),
   workbox.strategies.cacheFirst()
 )
+*/

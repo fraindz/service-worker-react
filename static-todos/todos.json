@@ -1,0 +1,6 @@
+{
+    "todos": [
+        { "id": 1, "text": "My first todo", "status": "COMPLETE"},
+        { "id": 2, "text": "Test todo", "status": "COMPLETE"} 
+    ]
+}
